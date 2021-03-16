@@ -1,0 +1,90 @@
+@import './variables.scss';
+@import 'normalize.css';
+@import './style_override.scss';
+
+// test
+
+@font-face {
+	font-family: 'Averta';
+	src: local('Averta'), url(../fonts/Averta-Cyrillic-Regular.ttf) format('truetype');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Averta';
+	src: local('Averta'), url(../fonts/Averta-Cyrillic-Bold.ttf) format('truetype');
+	font-weight: 700;
+}
+
+html {
+	font-family: 'Averta', sans-serif;
+	color: $black;
+	background: $background;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+p {
+	margin: 0;
+}
+
+*::selection {
+	color: $white;
+	background: $orange;
+}
+
+button {
+	font-family: 'Averta', sans-serif;
+	font-weight: normal;
+	font-size: 24px;
+}
+
+a, button {
+	display: flex;
+	text-decoration: none;
+	outline: none;
+	color: $black;
+	border: none;
+	background: transparent;
+	transition: $transition-time;
+	padding: 0;
+	cursor: pointer;
+	&:hover, &:focus, &:active {
+		color: $black;
+		text-decoration: none;
+		outline: none;
+	}
+	&.button-template {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 13px;
+		line-height: 1.4;
+		color: $white;
+		border-radius: 26px;
+		background: $orange;
+		padding: 0 15px;
+	}
+	&.height-32 {
+		height: 32px;
+	}
+}
+
+.wrapper {
+	display: block;
+}
+
+.container {
+	width: 100%;
+	max-width: 894px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.button-template {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
