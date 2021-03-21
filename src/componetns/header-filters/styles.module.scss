@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.filters {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	@media screen and ( max-width: $media ) {
+		width: 100%;
+	}
+}
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	margin-right: 8px;
+	&:last-child {
+		margin-right: 0;
+	}
+}
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 6px;
+	&:last-child {
+		margin-right: 0;
+	}
+}

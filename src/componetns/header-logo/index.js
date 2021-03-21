@@ -10,8 +10,9 @@ function HeaderLogo(props) {
       <a href="/" className={styles.logo__text}>{props.logoText}</a>
       <Button
         text={"Войти"}
-        height={"height-32"}
-        color={"color-orange"}
+        size={"btn-size-small"}
+        height={"btn-height-32"}
+        color={"btn-color-orange"}
       />
     </div>
   );

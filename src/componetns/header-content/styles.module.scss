@@ -1,6 +1,11 @@
+@import '../../styles/variables.scss';
+
 .content {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	@media screen and ( max-width: $media ) {
+		flex-direction: column;
+	}
 }

@@ -2,8 +2,6 @@
 @import 'normalize.css';
 @import './style_override.scss';
 
-// test
-
 @font-face {
 	font-family: 'Averta';
 	src: local('Averta'), url(../fonts/Averta-Cyrillic-Regular.ttf) format('truetype');
@@ -29,6 +27,12 @@ p {
 	margin: 0;
 }
 
+input {
+	outline: none;
+	padding: 0;
+	margin: 0;
+}
+
 *::selection {
 	color: $white;
 	background: $orange;
@@ -37,7 +41,6 @@ p {
 button {
 	font-family: 'Averta', sans-serif;
 	font-weight: normal;
-	font-size: 24px;
 }
 
 a, button {
@@ -47,7 +50,7 @@ a, button {
 	color: $black;
 	border: none;
 	background: transparent;
-	transition: $transition-time;
+	transition: $time;
 	padding: 0;
 	cursor: pointer;
 	&:hover, &:focus, &:active {
@@ -55,36 +58,124 @@ a, button {
 		text-decoration: none;
 		outline: none;
 	}
-	&.button-template {
+}
+
+.btn {
+	display: flex;
+	color: $black;
+	background: transparent;
+	transition: $time;
+	cursor: pointer;
+	&-button-template {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		border-radius: 26px;
+	}
+	&-size-small {
 		font-weight: 700;
 		font-size: 13px;
 		line-height: 1.4;
-		color: $white;
-		border-radius: 26px;
-		background: $orange;
-		padding: 0 15px;
+		padding: 0 14px;
 	}
-	&.height-32 {
+	&-size-normal {
+		font-size: 15px;
+		line-height: 1.33;
+		padding: 0 16px;
+	}
+	&-color-orange {
+		color: $white;
+		background: $orange;
+		&:hover {
+			color: $white;
+		}
+		i svg {
+			fill: $white;
+		}
+	}
+	&-color-grey {
+		color: $black;
+		background: $grey;
+		&:hover {
+			color: $black;
+		}
+		i svg {
+			fill: $black;
+		}
+	}
+	&-height-32 {
 		height: 32px;
 	}
-}
-
-.wrapper {
-	display: block;
+	&-height-40 {
+		height: 40px;
+	}
+	i {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 20px;
+		height: 20px;
+		margin-right: 4px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
 }
 
 .container {
 	width: 100%;
-	max-width: 894px;
+	max-width: $media;
 	padding: 0 15px;
 	margin: 0 auto;
 }
 
-.button-template {
+.wrapper {
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+.content {
+	display: flex;
+	flex: 1 0 auto;
+	width: 100%;
+	&__wrap {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+		height: 100%;
+		position: relative;
+		@media screen and ( max-width: $media ) {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			padding-bottom: 84px;
+		}
+	}
+	&__sidebar {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		flex-shrink: 0;
+		width: 304px;
+		padding: 24px 0;
+		margin-right: 32px;
+		@media screen and ( max-width: $media ) {
+			width: 100%;
+			padding: 0;
+			margin: 0;
+		}
+	}
+	&__main {
+		width: 100%;
+		height: calc(100vh - 57px);
+		@media screen and ( max-width: $media ) {
+			height: auto;
+			order: -1;
+		}
+	}
 }

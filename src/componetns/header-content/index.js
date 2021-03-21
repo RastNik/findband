@@ -1,11 +1,16 @@
 
+import HeaderSearch from '../header-search';
+import HeaderFilters from '../header-filters';
+
 import styles from './styles.module.scss';
 
 function HeaderContent() {
   return (
     <div className={styles.content}>
-      <p>search</p>
-      <p>filters</p>
+      <HeaderSearch
+        placeholder="Поиск.."
+      />
+      <HeaderFilters />
     </div>
   );
 }

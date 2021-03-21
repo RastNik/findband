@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+
+.search {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 240px;
+	height: 40px;
+	position: relative;
+	@media screen and ( max-width: $media ) {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 40px;
+		height: 40px;
+		margin-right: 4px;
+		svg {
+			fill: #7C7E8F;
+			transition: $time;
+		}
+	}
+	&__field {
+		display: block;
+		width: 100%;
+		height: 100%;
+		font-size: 15px;
+		color: $black;
+		border: 1px solid #E7E7EB;
+		border-radius: 12px;
+		background: transparent;
+		padding-left: 44px;
+		padding-right: 10px;
+		transition: $time;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		&::placeholder {
+			color: #B0B2BD;
+		}
+		&:focus {
+			border-color: $orange;
+			& + .search__icon {
+				svg {
+					fill: $orange;
+				}
+			}
+		}
+	}
+}
