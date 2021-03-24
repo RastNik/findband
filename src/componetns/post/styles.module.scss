@@ -1,0 +1,149 @@
+@import '../../styles/variables.scss';
+
+.block {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+	border-radius: 20px;
+	background: $white;
+	box-shadow: 0px 12px 32px rgba(2, 16, 57, 0.12);
+	padding: 4px;
+	padding-bottom: 16px;
+	margin-bottom: 16px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	&__img {
+		width: 100%;
+		background: $grey;
+		margin-bottom: 5px;
+		position: relative;
+		img {
+			width: 100%;
+			height: auto;
+			border-radius: 16px;
+		}
+	}
+	&__like {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		overflow: hidden;
+		&:after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: #000;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 0;
+			transition: $time;
+		}
+		&_svg {
+			fill: $white;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+			transition: $time;
+			&_active {
+				fill: $orange;
+				opacity: 0;
+			}
+		}
+		&_active {
+			&:after {
+				background: #FED9CD;
+			}
+			.block__like_svg {
+				opacity: 0;
+				&_active {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	&__play {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 58px;
+		height: 58px;
+		border: 2px solid $white;
+		border-radius: 50%;
+		background: $orange;
+		position: absolute;
+		right: 12px;
+		bottom: -29px;
+		&_svg {
+			fill: $white;
+			position: relative;
+			left: 1px;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		width: 100%;
+		padding: 7px 12px;
+	}
+	&__name {
+		margin-bottom: 6px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&_text {
+			font-weight: bold;
+			font-size: 24px;
+			line-height: 1.17;
+			letter-spacing: -0.4px;
+		}
+	}
+	&__category {
+		display: flex;
+		&_item {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			margin-right: 4px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		&_icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 4px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		&_text {
+			font-weight: 600;
+			font-size: 15px;
+			line-height: 1.33;
+		}
+		&_separator {
+			font-size: 15px;
+			line-height: 1.33;
+			margin-right: 4px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
